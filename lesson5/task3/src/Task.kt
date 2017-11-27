@@ -1,7 +1,9 @@
-fun <T> T.myApply(f: T.() -> Unit): T { TODO() }
+fun <T> T.myApply(f: T.() -> Unit): T {
+    return this.apply(f)
+}
 
 fun createString(): String {
-    return StringBuilder().myApply {
+    return StringBuilder().apply {
         append("Numbers: ")
         for (i in 1..10) {
             append(i)
@@ -10,7 +12,7 @@ fun createString(): String {
 }
 
 fun createMap(): Map<Int, String> {
-    return hashMapOf<Int, String>().myApply {
+    return hashMapOf<Int, String>().apply {
         put(0, "0")
         for (i in 1..10) {
             put(i, "$i")
